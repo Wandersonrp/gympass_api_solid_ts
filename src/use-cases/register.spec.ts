@@ -9,26 +9,26 @@ let sut: RegisterUseCases;
 
 describe("Register Use Case", () => {
     beforeEach(() => {
-         usersInMemoryRepository = new InMemoryUsersRepository();
-         sut = new RegisterUseCases(usersInMemoryRepository);
+        usersInMemoryRepository = new InMemoryUsersRepository();
+        sut = new RegisterUseCases(usersInMemoryRepository);
     });
-    
-    it("should be able to register", async () => {        
+
+    it("should be able to register", async () => {
         const { user } = await sut.execute({
             name: "John Doe",
             email: "johndoe@example.com",
             password: "123456"
         });
-                   
+
 
         expect(user.id).toEqual(expect.any(String));
     });
 
-    it("should hash user password upon registration", async () => {        
+    it("should hash user password upon registration", async () => {
         const { user } = await sut.execute({
-           name: "John Doe",
-           email: "johndoe@example.com",
-           password: "123456" 
+            name: "John Doe",
+            email: "johndoe@example.com",
+            password: "123456"
         });
 
         const isPasswordCorrectlyHashed = await compare(
@@ -39,7 +39,7 @@ describe("Register Use Case", () => {
         expect(isPasswordCorrectlyHashed).toBe(true);
     });
 
-    it("should not be able to register with same email twice", async () => {        
+    it("should not be able to register with same email twice", async () => {
         const email = "johndoe@example.com";
 
         await sut.execute({
@@ -48,13 +48,13 @@ describe("Register Use Case", () => {
             password: "123456"
         });
 
-        await expect(() => 
-        sut.execute({
+        await expect(() =>
+            sut.execute({
                 name: "John Doe",
                 email: email,
                 password: "123456"
             }),
-        ).rejects.toBeInstanceOf(UserAlreadyExistsError);                
-    });   
+        ).rejects.toBeInstanceOf(UserAlreadyExistsError);
+    });
 });
 
