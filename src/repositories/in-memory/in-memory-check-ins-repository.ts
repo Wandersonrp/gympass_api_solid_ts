@@ -3,7 +3,7 @@ import { CheckInsRepository } from "../check-ins-repository";
 import { randomUUID } from "node:crypto";
 import dayjs from "dayjs";
 
-export class InMemoryCheckInsRepository implements CheckInsRepository {    
+export class InMemoryCheckInsRepository implements CheckInsRepository {          
     public items: CheckIn[] = [];
     
     async findByUserIdOnDate(userId: string, date: Date) {
@@ -46,4 +46,24 @@ export class InMemoryCheckInsRepository implements CheckInsRepository {
         const metrics = this.items.filter((item) => item.user_id === userId).length;
         return metrics;
     }
+
+    async findById(id: string){
+        const checkin = this.items.find((item) => item.id === id);
+
+        if(!checkin) {
+            return null;
+        }
+        
+        return checkin;
+    }
+
+    async save(checkIn: CheckIn) {
+        const checkInIndex = this.items.findIndex((item) => item.id === checkIn.id);
+
+        if(checkInIndex >= 0) {
+            this.items[checkInIndex] = checkIn;
+        }
+
+        return checkIn;
+    }  
 }
