@@ -5,7 +5,7 @@ interface CreateGymUseCasesRequest {
     title: string;
     description: string | null;    
     phone: string | null;
-    latitue: number;
+    latitude: number;
     longitude: number;
 }
 
@@ -16,9 +16,9 @@ interface CreateGymUseCasesResponse {
 export class CreateGymUseCase {
     constructor(private gymRepository: GymsRepository) {}
 
-    async execute({ title, description, phone, latitue, longitude }: CreateGymUseCasesRequest): Promise<CreateGymUseCasesResponse> {                
+    async execute({ title, description, phone, latitude, longitude }: CreateGymUseCasesRequest): Promise<CreateGymUseCasesResponse> {                
         const gym = await this.gymRepository.create({
-            title, description, phone, latitue, longitude
+            title, description, phone, latitude, longitude
         });
 
         return { gym };

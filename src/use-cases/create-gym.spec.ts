@@ -16,7 +16,7 @@ describe("Create Gym Use Case", () => {
             title: "Academia Top Healthy",
             description: "Academia focada no bem estar",
             phone: "91234566640",
-            latitue: -18.8867462,
+            latitude: -18.8867462,
             longitude: -41.9494066
         });
 

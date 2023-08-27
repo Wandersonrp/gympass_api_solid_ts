@@ -23,7 +23,7 @@ export class InMemoryGymsRepository implements GymsRepository {
             description: data.description ?? null,
             phone: data.phone ?? null,
             longitude: new Prisma.Decimal(data.longitude.toString()),
-            latitue: new Prisma.Decimal(data.latitue.toString()),
+            latitude: new Prisma.Decimal(data.latitude.toString()),
             created_at: new Date()
         }
 
@@ -43,7 +43,7 @@ export class InMemoryGymsRepository implements GymsRepository {
             const distance = getDistanceBetweenCoordinates({
                 latitude: params.latitude,
                 longitude: params.longitude,
-            }, {latitude: item.latitue.toNumber(), longitude: item.longitude.toNumber()});
+            }, {latitude: item.latitude.toNumber(), longitude: item.longitude.toNumber()});
 
             return distance < 10;
         })

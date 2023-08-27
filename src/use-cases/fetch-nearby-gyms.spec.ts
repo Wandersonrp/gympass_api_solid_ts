@@ -16,7 +16,7 @@ describe("Fetch Nearby Gyms Use Case", () => {
             title: "Near Gym",
             description: "Academia focada no bem estar",
             phone: "91234566640",
-            latitue: -18.8867462,
+            latitude: -18.8867462,
             longitude: -41.9494066
         });
 
@@ -24,7 +24,7 @@ describe("Fetch Nearby Gyms Use Case", () => {
            title: "Far Gym",
            description: "Academia focada no bem estar",
            phone: "91234566640",
-           latitue: -19.1561305,
+           latitude: -19.1561305,
            longitude: -42.2396658
         });
         

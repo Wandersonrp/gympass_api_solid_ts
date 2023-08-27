@@ -23,7 +23,7 @@ CREATE TABLE "gyms" (
     "title" TEXT NOT NULL,
     "description" TEXT,
     "phone" TEXT,
-    "latitue" DECIMAL(65,30) NOT NULL,
+    "latitude" DECIMAL(65,30) NOT NULL,
     "longitude" DECIMAL(65,30) NOT NULL,
 
     CONSTRAINT "gyms_pkey" PRIMARY KEY ("id")

@@ -21,7 +21,7 @@ describe("Check In Use Case", () => {
             title: "Academia Top Healthy",
             description: "Academia focada no bem estar",
             phone: "91234566640",
-            latitue: -18.8676002,
+            latitude: -18.8676002,
             longitude: -41.9493979
         })
 
@@ -97,7 +97,7 @@ describe("Check In Use Case", () => {
             id: "gym-02",
             title: "Academia C#",
             description: "Academia focada em diversos tipos de atividades",
-            latitue: new Decimal(0),
+            latitude: new Decimal(0),
             longitude: new Decimal(0),
             phone: ""
         });        

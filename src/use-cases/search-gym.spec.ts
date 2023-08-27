@@ -18,7 +18,7 @@ describe("Search Gyms Use Case", () => {
             title: "Javascript academia",
             description: "Academia focada no bem estar",
             phone: "91234566640",
-            latitue: -18.8867462,
+            latitude: -18.8867462,
             longitude: -41.9494066
         });
 
@@ -26,7 +26,7 @@ describe("Search Gyms Use Case", () => {
            title: "Typescript academia",
            description: "Academia focada no bem estar",
            phone: "91234566640",
-           latitue: -18.8867462,
+           latitude: -18.8867462,
            longitude: -41.9494066
         });
         
@@ -47,7 +47,7 @@ describe("Search Gyms Use Case", () => {
                 title: `Javascript academia ${i}`,
                 description: "Academia focada no bem estar",
                 phone: "91234566640",
-                latitue: -18.8867462,
+                latitude: -18.8867462,
                 longitude: -41.9494066
             });    
         }                
