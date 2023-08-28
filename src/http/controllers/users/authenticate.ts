@@ -24,7 +24,23 @@ export async function authenticate(request: FastifyRequest, reply: FastifyReply)
                 sub: user.id,
             }
         });
-        return reply.status(200).send({
+
+        const refreshToken = await reply.jwtSign({}, {
+            sign: {
+                sub: user.id,
+                expiresIn: "1d"
+            }
+        });
+
+        return reply
+        .setCookie("refreshToken", refreshToken, {
+            path: "/",
+            secure: true,
+            sameSite: true,
+            httpOnly: true
+        })
+        .status(200)
+        .send({
             token,
         });
     } catch (error) {
